@@ -1,0 +1,30 @@
+{ 
+    "data": [
+        {
+          "room_id": 1,
+          "name": "Happy~",
+          "owner": "jisoo"
+        },
+        {
+          "room_id": 2,
+          "name": "Hello ! Nice to meet you :)",
+          "owner": "dongjun"
+        },
+        {
+          "room_id": 3,
+          "name": "Don't beat yourself up.",
+          "owner": "dohee"
+        },
+        {
+          "room_id": 4,
+          "name": "No sweat, No sweet.",
+          "owner": "sujin"
+        },
+        {
+          "room_id": 5,
+          "name": "The harder you work, the more likely you can reach the goal!",
+          "owner": "jenny"
+        }
+      ]
+  }
+  
