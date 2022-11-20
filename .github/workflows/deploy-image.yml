@@ -34,12 +34,14 @@ jobs:
       id: docker_build
       uses: docker/build-push-action@v2
       with:
+        context: .
+        file: Dockerfile
         builder: ${{ steps.buildx.outputs.name }}
         push: true
         tags: ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
 
   deploy:
-    needs: build
+    needs: build-and-push-image
     name: Deploy
     runs-on: self-hosted 
     steps:
