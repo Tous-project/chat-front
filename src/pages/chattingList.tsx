@@ -87,6 +87,17 @@ const ChatName = styled.div`
   margin-bottom: 2px;
 `;
 
+const NonReadBadge = styled.div`
+  position: fixed;
+  right: 0;
+  margin: 40px;
+  border-radius: 50%;
+  background-color: lightgray;
+  padding: 3px 7px;
+  color: white;
+  font-size: 10px;
+`;
+
 interface RoomType {
   room_id: number;
   name: string;
@@ -103,6 +114,7 @@ const ChattingRoom = ({ room }: { room: RoomType }) => {
         <ChatName>{room.name}</ChatName>
         <ChatName style={{ color: "gray" }}>{room.owner}</ChatName>
       </ChattingDiv>
+      {/* <NonReadBadge>1</NonReadBadge> */}
     </ChatListLine>
   );
 };

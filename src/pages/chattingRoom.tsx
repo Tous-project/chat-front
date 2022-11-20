@@ -54,7 +54,7 @@ const InputDiv = styled.input`
 const SendButton = styled.button`
   border: none;
   border-radius: 50%;
-  padding: 12px;
+  padding: 10px;
   cursor: pointer;
   transition-duration: 0.1s;
   :active {
