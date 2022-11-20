@@ -5,7 +5,7 @@ on:
       - main
 env:
   REGISTRY: ghcr.io
-  DOCKER_IMAGE: ${{ github.repository }}/chat-front # ${{}} 은 변수. 본인 user-name
+  DOCKER_IMAGE: tous-project/chat-front/chat-front # ${{}} 은 변수. 본인 user-name
   VERSION: ${{ github.sha }} 
   NAME: dohee_cicd
 
