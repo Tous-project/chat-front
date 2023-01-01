@@ -1,5 +1,6 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import LogIn from "./pages/login";
+import Join from "./pages/join";
 import ChattingList from "./pages/chattingList";
 import ChattingRoom from "./pages/chattingRoom";
 import { createGlobalStyle } from "styled-components";
@@ -16,6 +17,7 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<LogIn />} />
+        <Route path="/join" element={<Join />} />
         <Route path="/chatting-list" element={<ChattingList />} />
         <Route path="/chatting-room" element={<ChattingRoom />} />
       </Routes>

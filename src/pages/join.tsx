@@ -13,7 +13,7 @@ const Main = styled.div`
 `;
 
 const Container = styled.div`
-  width: 450px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +37,7 @@ const Container = styled.div`
   }
 `;
 
-const LoginTitle = styled.div`
+const JoinTitle = styled.div`
   margin-bottom: 50px;
   display: flex;
   & > span {
@@ -63,51 +63,45 @@ const Button = styled.button`
   }
 `;
 
-const FindButton = styled.button`
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-  background-color: white;
-  /* border-bottom: 1px solid black; */
-`;
-
-const login = () => {
+const join = () => {
   const [userEmail, setUserEmail] = useState<string>("");
   const [userPassword, setUserPassword] = useState<string>("");
+  const [userNickname, setUserNickname] = useState<string>("");
 
   const navigate = useNavigate();
 
-  const getLogin = async () => {
+  const getJoin = async () => {
     try {
+      // console.log(userEmail);
+      // console.log(userPassword);
+      // console.log(userNickname);
       const response = await axios.post(
-        `http://chat.tryourself.com:30003/sessions`,
+        `http://chat.tryourself.com:30003/users`,
         {
           email: userEmail,
           password: userPassword,
+          name: userNickname,
         }
       );
       console.log(response.data);
-      if (response.data.session_id !== null) {
-        localStorage.setItem("userId", response.data.user_id);
-        localStorage.setItem("userSession", response.data.session_id);
-        // setIsLoggedIn(true);
-        navigate("/chatting-list");
+      if (response.data.email === userEmail) {
+        alert("회원가입이 완료되었습니다.");
+        navigate("/");
       }
     } catch (e: any) {
       alert(JSON.stringify(e.response?.data.error_message));
     }
   };
-
   return (
     <Main>
       <Container>
-        <LoginTitle>
+        <JoinTitle>
           <BsChatSquareQuoteFill style={{ color: "#4783ff" }} />
-          <span>Chatting API</span>
-        </LoginTitle>
+          <span>Welcome!</span>
+        </JoinTitle>
         <input
           type="email"
-          placeholder="user email"
+          placeholder="Please write new user email"
           required
           onChange={(e) => {
             setUserEmail(e.target.value);
@@ -121,12 +115,23 @@ const login = () => {
             setUserPassword(e.target.value);
           }}
         ></input>
-        <Button onClick={() => getLogin()}>로그인</Button>
-        <Button onClick={() => navigate("/join")}>회원가입</Button>
-        <FindButton>아이디/비밀번호 찾기</FindButton>
+        <input
+          placeholder="nickname"
+          required
+          onChange={(e) => {
+            setUserNickname(e.target.value);
+          }}
+        ></input>
+        <Button
+          onClick={() => {
+            getJoin();
+          }}
+        >
+          회원가입하기
+        </Button>
       </Container>
     </Main>
   );
 };
 
-export default login;
+export default join;

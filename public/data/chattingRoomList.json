@@ -2,8 +2,8 @@
     "data": [
         {
           "room_id": 1,
-          "name": "Happy~",
-          "owner": "jisoo"
+          "name": "Chatting room Name",
+          "owner": "Chatting room Owner"
         },
         {
           "room_id": 2,
